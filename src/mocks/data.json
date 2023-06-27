@@ -137,7 +137,7 @@
   {
     "id": 10,
     "company": "The Air Filter Company",
-    "logo": "../src/assets/assets//images/the-air-filter-company.svg",
+    "logo": "../src/assets/images/the-air-filter-company.svg",
     "new": false,
     "featured": false,
     "position": "Front-end Dev",
