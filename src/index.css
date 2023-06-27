@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .toolsLi {
+      @apply px-3 py-2 bg-[#edf6f3] text-[#5dadae] rounded-md font-semibold cursor-pointer transition-all hover:bg-[#5ea3a3] hover:text-white;
+    }
+  }

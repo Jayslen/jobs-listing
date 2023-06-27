@@ -6,22 +6,24 @@ export function useFilter () {
   const previusFilters = useRef(filters)
   previusFilters.current = filters
 
-
-const filterJobs = () => {
+  const filterJobs = () => {
     return data.filter((item) => {
-        return (
+      return (
         (filters.level ? item.level.includes(filters.level) : true) &&
         (filters.lang ? item.languages.includes(filters.lang) : true) &&
-        (filters.role ? item.role.includes(filters.role) : true) && 
+        (filters.role ? item.role.includes(filters.role) : true) &&
         (filters.tools ? item.tools.includes(filters.tools) : true)
-        );
-    });
-  };
-  console.log(previusFilters.current);
+      )
+    })
+  }
+//   console.log(previusFilters.current)
   const updatedRole = ({ role }) => {
-      setFilters({ role, level: previusFilters.current.level, tools: previusFilters.current.tools, lang: previusFilters.current.lang })
-
+    setFilters({ role, level: previusFilters.current.level, tools: previusFilters.current.tools, lang: previusFilters.current.lang })
   }
 
-  return { updatedRole, filterJobs }
+  const updateLevel = ({ level }) => {
+    setFilters({ role: previusFilters.current.role, level, tools: previusFilters.current.tools, lang: previusFilters.current.lang })
+  }
+
+  return { filterJobs, filters, setFilters, updatedRole, updateLevel }
 }

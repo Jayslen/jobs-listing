@@ -1,27 +1,30 @@
-import { FilterHeader } from './components/FilterHeader';
-import { JobsList } from './components/JobsLabel';
-import { useFilter } from './hooks/useFilterJobs';
-import data from './mocks/data.json';
+import { FilterHeader } from './components/FilterHeader'
+import { JobsList } from './components/JobsLabel'
+import { useFilter } from './hooks/useFilterJobs'
 
-function App() {
-  const {filterJobs, updatedRole } = useFilter()
-
-  const changeRole = ({role}) => {
-    updatedRole({role})
-    filterJobs()
+function App () {
+  const { filterJobs, filters, setFilters, updatedRole, updateLevel } = useFilter()
+  // methods to update the filtersState.
+  const methods = {
+    role: (text) => {
+      updatedRole({ role: text })
+      filterJobs()
+    },
+    level: (text) => {
+      updateLevel({ level: text })
+      filterJobs()
+    }
   }
-
   return (
     <>
-    <button onClick={changeRole}>hello change role</button>
-      <main className=" w-full font-Spartan">
-        {/* <FilterHeader/> */}
-        <section className="grid place-content-center">
-          <JobsList data={filterJobs()} updateRole={changeRole}/>
+      <main className=' w-full font-Spartan'>
+        <FilterHeader filtersLabel={filters} updateFilters={setFilters} />
+        <section className='grid place-content-center'>
+          <JobsList data={filterJobs()} methods={methods} />
         </section>
       </main>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
