@@ -1,19 +1,22 @@
 import ilustration from '../assets/images/bg-header-desktop.svg'
-
 function LabelsTags ({ text, eraseElm }) {
   return (
+    <div className='p-1'>
     <span
-      className='bg-[#edf6f3] text-[#5dadae] font-bold px-2 py-1 cursor-pointer'
+      className='bg-[#edf6f3] text-[#5dadae] font-bold px-2 py-2 cursor-pointer'
       onClick={eraseElm}
-    >
+      >
       {text}
     </span>
+    <span></span>
+      </div>
   )
 }
 
 // function to add and remove the label of the filter, also update the state
 export function FilterHeader ({ filtersLabel, updateFilters }) {
   const labelsValue = Object.entries(filtersLabel)
+  
   const erase = (event) => {
     const index = labelsValue.findIndex((elm) => {
       return elm.includes(event.target.textContent)
@@ -32,7 +35,7 @@ export function FilterHeader ({ filtersLabel, updateFilters }) {
 
   return (
     <header
-      className='h-32 bg-[#458586] mb-10'
+      className='h-52 bg-[#458586] mb-10'
       style={{
         backgroundImage: `url(${ilustration})`,
         backgroundSize: 'cover'
@@ -40,8 +43,9 @@ export function FilterHeader ({ filtersLabel, updateFilters }) {
     >
       {Object.values(filtersLabel).join('')
         ? (
-          <div className='max-w-xl bg-white relative top-24 m-auto flex items-center gap-2 px-2 py-2'>
-            {labelsValue.map((content, index) => {
+          <div className='max-w-xl bg-white relative top-44 m-auto flex items-center gap-2 px-2 py-2'>
+            {labelsValue.slice(0, 2).map((content, index) => {
+              console.log(index);
               {
                 return content[1] !== ''
                   ? (

@@ -11,13 +11,12 @@ export function JobsLabelTools ({ job, methods }) {
       <ul className='flex gap-2'>
         <li className='toolsLi' onClick={roleUpdate}>{job.role}</li>
         <li className='toolsLi' onClick={levelUpdate}>{job.level}</li>
-        {/* <ToolsLi text={job.level} /> */}
-        {/* {job.languages?.map((lang, index) => {
+        {job.languages?.map((lang, index) => {
           return (
-            <ToolsLi text={lang} key={index} />
+            <li className= 'toolsLi' key={index}>{lang}</li>
           )
         })}
-        {job.tools?.map((tool, index) => {
+        {/* {job.tools?.map((tool, index) => {
           return (
             <ToolsLi text={tool} key={index} />
           )
