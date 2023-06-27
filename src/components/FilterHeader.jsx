@@ -63,17 +63,17 @@ export function FilterHeader ({ filtersLabel, updateFilters }) {
   }
   return (
     <>
-    <header
+    <div
       className='h-52 bg-[#458586] px-3'
       style={{
         backgroundImage: `url(${ilustration})`,
         backgroundSize: 'cover'
       }}
 
-    ></header>
+    ></div>
       {Object.values(filtersLabel).join('')
         ? (
-          <div className='max-w-2xl mx-3 bg-white relative -top-5 flex items-center gap-8 px-4 py-2 rounded-sm md:mx-auto'>
+          <header className='max-w-2xl mx-3 bg-white relative -top-5 flex items-center gap-8 px-4 py-2 rounded-sm md:mx-auto'>
             <div className='flex flex-wrap grow gap-1'>
               {labelsValue.slice(0, 2).map((content, index) => {
                 {
@@ -99,7 +99,7 @@ export function FilterHeader ({ filtersLabel, updateFilters }) {
               })}
             </div>
             <p className='cursor-pointer font-medium hover:text-[#609f9e] hover:underline' onClick={clearFilters}>Clear</p>
-          </div>
+          </header>
           )
         : null}
   </>

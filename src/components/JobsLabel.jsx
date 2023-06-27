@@ -26,4 +26,3 @@ export function JobsList ({ data, methods }) {
   )
 }
 
-// w-[768px]
