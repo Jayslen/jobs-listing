@@ -8,7 +8,6 @@ export function JobsLabelTools ({ job, methods }) {
   const languagesUpdate = (event) => {
     methods.languages({ lang: event.target.textContent })
   }
-
   const toolsUpdate = (event) => {
     methods.tools({ tools: event.target.textContent })
   }

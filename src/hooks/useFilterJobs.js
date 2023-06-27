@@ -34,14 +34,14 @@ export function useFilter () {
       filterJobs()
     },
     languages: ({ lang }) => {
-      if (lang === previusFilters.current.lang[previusFilters.current.lang.length - 1]) return
+      if (previusFilters.current.lang.includes(lang)) return
       const newLang = previusFilters.current.lang
       newLang.push(lang)
       setFilters({ role: previusFilters.current.role, level: previusFilters.current.level, tools: previusFilters.current.tools, lang: newLang })
       filterJobs()
     },
     tools: ({ tools }) => {
-      if (tools === previusFilters.current.tools[previusFilters.current.tools.length - 1]) return
+      if (previusFilters.current.tools.includes(tools)) return
       const newTools = previusFilters.current.tools
       newTools.push(tools)
       setFilters({ role: previusFilters.current.role, level: previusFilters.current.level, tools: newTools, lang: previusFilters.current.lang })
