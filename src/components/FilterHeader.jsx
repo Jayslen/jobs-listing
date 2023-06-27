@@ -17,12 +17,32 @@ function LabelsTags ({ text, eraseElm }) {
 export function FilterHeader ({ filtersLabel, updateFilters }) {
   const labelsValue = Object.entries(filtersLabel)
 
+  // remove levelTag or rol
   const erase = (event) => {
     const index = labelsValue.findIndex((elm) => {
       return elm.includes(event.target.textContent)
     })
     labelsValue[index][1] = ''
     updateFilters(Object.fromEntries(labelsValue))
+  }
+
+  // help function to remove tags
+  const removeToolsLang = ({arrIndex, event}) => {
+    const index = labelsValue[arrIndex][1]?.findIndex((elm) => {
+      return elm.includes(event.target.textContent)
+    })
+    labelsValue[arrIndex][1]?.splice(index)
+    updateFilters(Object.fromEntries(labelsValue))
+  }
+
+
+  // remove languageTag or tool
+  const remove = (event) =>{
+    if(labelsValue[3][1]?.includes(event.target.textContent)) {
+    removeToolsLang({arrIndex: 3, event})
+    } else if (labelsValue[2][1]?.includes(event.target.textContent)) {
+      removeToolsLang({arrIndex: 2, event})
+    }
   }
 
   // clear all the labels
@@ -57,14 +77,17 @@ export function FilterHeader ({ filtersLabel, updateFilters }) {
                   : null
               }
             })}
+
+            {/* tools tags */}
             {labelsValue[3][1]?.map((item, index) => {
               return (
-                <LabelsTags text={item} key={index} />
+                <LabelsTags text={item} key={index} eraseElm={remove} />
               )
             })}
+            {/* languages tool */}
             {labelsValue[2][1]?.map((item, index) => {
               return (
-                <LabelsTags text={item} key={index} />
+                <LabelsTags text={item} key={index} eraseElm={remove} />
               )
             })}
             <p className='absolute right-5 cursor-pointer' onClick={clearFilters}>Clear</p>
