@@ -3,18 +3,7 @@ import { JobsList } from './components/JobsLabel'
 import { useFilter } from './hooks/useFilterJobs'
 
 function App () {
-  const { filterJobs, filters, setFilters, updatedRole, updateLevel } = useFilter()
-  // methods to update the filtersState.
-  const methods = {
-    role: (text) => {
-      updatedRole({ role: text })
-      filterJobs()
-    },
-    level: (text) => {
-      updateLevel({ level: text })
-      filterJobs()
-    }
-  }
+  const { filterJobs, filters, setFilters, methods } = useFilter()
   return (
     <>
       <main className=' w-full font-Spartan'>

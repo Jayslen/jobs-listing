@@ -7,7 +7,7 @@ export function JobListHeader ({ job }) {
         {job.featured ? <span className='bg-[#2b3a37]'>Feature</span> : null}
       </div>
 
-      <h2 className='text-xl font-bold transition-colors hover:text-[#5dadae] cursor-pointer'>{job.position}</h2>
+      <h2 className='text-lg font-bold transition-colors hover:text-[#5dadae] cursor-pointer'>{job.position}</h2>
 
       <ul className='flex gap-2 [&>li]:text-gray-400'>
         <li>{job.postedAt}</li>

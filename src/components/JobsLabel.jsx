@@ -16,7 +16,7 @@ function JobsLabel ({ job, methods }) {
 
 export function JobsList ({ data, methods }) {
   return (
-    <ul className='flex flex-col gap-5 max-w-3xl'>
+    <ul className='flex flex-col gap-5 w-[768px]'>
       {data?.map((jobs) => {
         return (
           <JobsLabel key={jobs.id} job={jobs} methods={methods} />
