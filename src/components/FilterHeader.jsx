@@ -22,6 +22,14 @@ export function FilterHeader ({ filtersLabel, updateFilters }) {
     updateFilters(Object.fromEntries(labelsValue))
   }
 
+  // clear all the labels
+  const clearFilters = () => {
+    labelsValue.forEach((elm) => {
+      elm[1] = ''
+    })
+    updateFilters(Object.fromEntries(labelsValue))
+  }
+
   return (
     <header
       className='h-32 bg-[#458586] mb-10'
@@ -42,6 +50,8 @@ export function FilterHeader ({ filtersLabel, updateFilters }) {
                   : null
               }
             })}
+            <p className='absolute right-5 cursor-pointer' onClick={clearFilters}>Clear</p>
+
           </div>
           )
         : null}

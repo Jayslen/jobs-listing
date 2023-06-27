@@ -16,7 +16,7 @@ export function useFilter () {
       )
     })
   }
-//   console.log(previusFilters.current)
+  //   console.log(previusFilters.current)
   const updatedRole = ({ role }) => {
     setFilters({ role, level: previusFilters.current.level, tools: previusFilters.current.tools, lang: previusFilters.current.lang })
   }
