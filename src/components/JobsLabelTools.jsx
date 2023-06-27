@@ -14,7 +14,7 @@ export function JobsLabelTools ({ job, methods }) {
 
   return (
     <article>
-      <ul className='flex gap-2'>
+      <ul className='flex flex-wrap gap-2'>
         <li className='toolsLi' onClick={roleUpdate}>{job.role}</li>
         <li className='toolsLi' onClick={levelUpdate}>{job.level}</li>
         {job.languages?.map((lang, index) => {

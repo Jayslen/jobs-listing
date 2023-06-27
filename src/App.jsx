@@ -6,9 +6,9 @@ function App () {
   const { filterJobs, filters, setFilters, methods } = useFilter()
   return (
     <>
-      <main className=' w-full font-Spartan'>
+      <main className='font-Spartan'>
         <FilterHeader filtersLabel={filters} updateFilters={setFilters} />
-        <section className='grid place-content-center'>
+        <section className='px-3  md:grid md:place-content-center mt-2'>
           <JobsList data={filterJobs()} methods={methods} />
         </section>
       </main>
